@@ -1,7 +1,7 @@
 import json
 import os
 import sys
-from twilio.rest import TwilioRestClient
+import requests
 
 VARNAME_HOSTNAME = 'C9_HOSTNAME'
 DEFAULT_APP_ROUTE = 'sms'
@@ -12,12 +12,6 @@ if __name__ == "__main__":
         print "Usage: python run.py <config_file>"
         exit(-1)
     config_filepath = sys.argv[1]
-
-    # Get app path from user
-    app_route = raw_input("Enter custom app route (press return to use default): ");
-    app_route = app_route.strip('/')
-    if len(app_route) is 0:
-        app_route = DEFAULT_APP_ROUTE
 
     # Parse configuration file
     try:
@@ -31,12 +25,17 @@ if __name__ == "__main__":
     print "Phone Number SID: " + config['phone_number_sid']
 
     # Scrape app url from env and update PN SMS URL
-    app_url = 'http://' + os.environ[VARNAME_HOSTNAME] + '/' + app_route
+    app_url = 'http://' + os.environ[VARNAME_HOSTNAME] + '/' + DEFAULT_APP_ROUTE
     print "App URL: " + app_url
     print "Updating SMS URL for phone number..."
-    client = TwilioRestClient(config['account_sid'], config['auth_token'])
     try:
-        number = client.phone_numbers.update(config['phone_number_sid'], sms_url=app_url)
+        response = requests.post(
+            'https://api.twilio.com/2010-04-01/Accounts/{}/IncomingPhoneNumbers/{}.json'.format(config['account_sid'], config['phone_number_sid']),
+            auth=(config['account_sid'], config['auth_token']),
+            data={
+                'SmsUrl': app_url
+            }
+        )
     except:
         print "Could not update your Twilio phone number SMS URL"
         print "First, check your internet connection"
