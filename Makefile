@@ -12,7 +12,7 @@ install: dependencies configure
 
 dependencies:
 	echo "Upgrading pip"
-	supd pip install --upgrade pip
+	sudo pip install --upgrade pip
 	echo "Resolving Python dependencies..."
 	sudo pip install --upgrade -r requirements.txt
 
