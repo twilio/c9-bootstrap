@@ -41,11 +41,11 @@ if __name__ == "__main__":
 
     # Get new configuration
     properties = {}
-    properties['account_sid'] = raw_input("Account SID: ")
+    properties['account_sid'] = raw_input("Account SID: ").strip()
     validate_input(properties['account_sid'], 'AC')
-    properties['auth_token'] = raw_input("Auth Token: ")
+    properties['auth_token'] = raw_input("Auth Token: ").strip()
     validate_input(properties['auth_token'])
-    properties['phone_number_sid'] = raw_input("Phone Number SID: ")
+    properties['phone_number_sid'] = raw_input("Phone Number SID: ").strip()
     validate_input(properties['phone_number_sid'], 'PN')
 
     # Validate credentials and get phone number
