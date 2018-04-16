@@ -4,23 +4,26 @@ CONFIG_FILE = ../config.json
 
 all: install serve
 
+venv:
+	virtualenv venv
+
 serve:
 	echo "Starting Flask server..."
-	python run.py
+	. venv/bin/activate; python run.py
 
-install: dependencies configure
+install: venv dependencies configure
 
 dependencies:
 	echo "Upgrading pip"
-	sudo pip install --upgrade pip
+	. venv/bin/activate; pip install --upgrade pip
 	echo "Resolving Python dependencies..."
-	sudo pip install --upgrade -r requirements.txt
+	. venv/bin/activate; pip install --upgrade -r requirements.txt
 
 configure:
 	echo "Configuring app..."
-	python configure.py $(CONFIG_FILE)
+	. venv/bin/activate; python configure.py $(CONFIG_FILE)
 	echo "Bootstrapping app..."
-	python bootstrap.py $(CONFIG_FILE)
+	. venv/bin/activate; python bootstrap.py $(CONFIG_FILE)
 
 clean:
 	echo "Deleting configuration file..."
