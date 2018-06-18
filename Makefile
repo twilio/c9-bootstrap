@@ -11,7 +11,10 @@ serve:
 	echo "Starting Flask server..."
 	. venv/bin/activate; python run.py
 
-install: venv dependencies configure
+install: venv dependencies configure runner
+
+runner:
+	echo '{"cmd":["make","serve"],"info":"Started $project_path$file_name","env":{},"selector":"source.ext"}' > ./.c9/runners/Bootcamp
 
 dependencies:
 	echo "Upgrading pip"
