@@ -12,9 +12,14 @@ serve:
 	. venv/bin/activate; python run.py
 
 install: venv dependencies configure runner
+	@echo '@@@ INSTALL SUCCESS @@@'
+	@echo '@@@ INSTALL SUCCESS @@@'
+	@echo '@@@ INSTALL SUCCESS @@@'
 
 runner:
-	echo '{"cmd":["make","serve"],"info":"Started $project_path$file_name","env":{},"selector":"source.ext"}' > ./.c9/runners/Bootcamp
+	mkdir -p ~/workspace/.c9/runners
+	touch ~/workspace/.c9/runners/Bootcamp.run
+	echo '{"cmd":["make","serve"],"info":"Started $$project_path$$file_name","env":{},"selector":"source.ext"}' > ~/workspace/.c9/runners/Bootcamp.run
 
 dependencies:
 	echo "Upgrading pip"
