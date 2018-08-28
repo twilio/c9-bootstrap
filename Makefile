@@ -28,8 +28,6 @@ dependencies:
 	. venv/bin/activate; pip install --upgrade -r requirements.txt
 
 configure:
-	echo "Configuring app..."
-	. venv/bin/activate; python configure.py $(CONFIG_FILE)
 	echo "Bootstrapping app..."
 	. venv/bin/activate; python bootstrap.py $(CONFIG_FILE)
 
