@@ -20,6 +20,14 @@ if __name__ == "__main__":
     except IOError:
         print "Configuration file not found - run `make install`"
         exit(-1)
+
+    for required_key in ['account_sid', 'auth_token', 'phone_number_sid']:
+        if required_key not in config:
+            print "*** ERROR ***"
+            print "config.json missing an entry: " + required_key
+            print "edit config.json and add your twilio secret data and try again"
+            exit(-2)
+
     print "Account SID: " + config['account_sid']
     print "Auth Token: " + config['auth_token']
     print "Phone Number SID: " + config['phone_number_sid']
