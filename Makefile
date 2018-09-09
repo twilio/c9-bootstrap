@@ -8,7 +8,7 @@ venv:
 	virtualenv venv
 
 setup:
-	cp -n sample.json $(CONFIG_FILE)
+	cp -n sample-config $(CONFIG_FILE)
 
 serve:
 	echo "Starting Flask server..."
