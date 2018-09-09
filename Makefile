@@ -2,10 +2,13 @@
 
 CONFIG_FILE = ../config.json
 
-all: install serve
+all: setup install serve
 
 venv:
 	virtualenv venv
+
+setup:
+	cp -n sample.json $(CONFIG_FILE)
 
 serve:
 	echo "Starting Flask server..."
