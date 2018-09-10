@@ -27,6 +27,10 @@ if __name__ == "__main__":
             print "config.json missing an entry: " + required_key
             print "edit config.json and add your twilio secret data and try again"
             exit(-2)
+        if len(config[required_key]) < 30:
+            print "*** ERROR ***"
+            print "Invalid value for " + required_key
+            exit(-2)
 
     print "Account SID: " + config['account_sid']
     print "Auth Token: " + config['auth_token']
