@@ -33,7 +33,7 @@ if __name__ == "__main__":
             exit(-2)
 
     print "Account SID: " + config['account_sid']
-    print "Auth Token: " + config['auth_token']
+    print "Auth Token: {}{}".format(config['auth_token'][:5], len(config['auth_token'][5:]) * '*')
     print "Phone Number SID: " + config['phone_number_sid']
 
     # Scrape app url from env and update PN SMS URL
