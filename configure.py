@@ -60,6 +60,6 @@ if __name__ == "__main__":
     # Store new configuration
     print "Storing configuration in: " + config_filepath
     config_file = open(config_filepath, 'w')
-    json.dump(properties, config_file)
+    json.dump(properties, config_file, indent=2)
     config_file.flush()
     config_file.close()

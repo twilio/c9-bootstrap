@@ -13,9 +13,10 @@ twilio-c9-bootstrap is designed to make setting up your first Twilio app a breez
   - Under `Clone from Git or Mercurial URL` enter `https://github.com/twilio/c9-bootstrap`
   - Under `Hosted workspace` select `Public`
   - Under `Choose a template` select `Python`
-4. Set up your starter code.
+4. Set up your application.
   - In your newly created workspace, click on the terminal window (bottom pane).
   - Type `make install` and return.
+  - Enter your credentials and phone number sid from steps 1 and 2 when prompted.
   - Type `python run.py` and enter to run your server.
 
 Now, send a text to your Twilio number. You should get a response from your app! You're all set to start developing your first Twilio app.
@@ -27,6 +28,7 @@ Now, send a text to your Twilio number. You should get a response from your app!
 ##### Additional `make` options
 - `make` - Installs, configures and starts your server
 - `make install` - Installs and configures your server
-- `make configure` - Reconfigures your server
+- `make configure` - Sets up configuration files
+- `make bootstrap` - Reconfigures your server
 - `make serve` - Starts your server
 - `make clean` - Uninstalls your server
