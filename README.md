@@ -4,17 +4,18 @@
 twilio-c9-bootstrap is designed to make setting up your first Twilio app a breeze. Here's a walkthrough of how to get one up in no time.
 
 1. [Set up a Twilio account](https://www.twilio.com/try-twilio).
-  - Make note of your Account SID & Auth Token, which can be found under your [Account Settings](https://www.twilio.com/user/account/settings).
 2. [Buy a phone number](https://www.twilio.com/user/account/phone-numbers/search).
-  - Under your [list of incoming phone numbers](https://www.twilio.com/user/account/phone-numbers/incoming), click on your new Twilio number and make note of its SID.
-3. [Set up a Cloud9 account](https://c9.io/web/sign-up/free) and [create a new workspace](https://c9.io/new).
+3. [Set up a Cloud9 account](http://twilio-invite.herokuapp.com/)
+  - Input your twilio account into page.
+  - You should receive a Cloud9 invite link. Use the link to set up your account.
+  - On the "Join team" page, instead of joining team, just "Go to dashboard".
+4. [Create a new workspace](https://c9.io/new).
   - Under `Clone from Git or Mercurial URL` enter `https://github.com/twilio/c9-bootstrap`
   - Under `Hosted workspace` select `Public`
   - Under `Choose a template` select `Python`
 4. Set up your starter code.
   - In your newly created workspace, click on the terminal window (bottom pane).
   - Type `make install` and return.
-  - Enter your credentials from steps 1 and 2 when prompted.
   - Type `python run.py` and enter to run your server.
 
 Now, send a text to your Twilio number. You should get a response from your app! You're all set to start developing your first Twilio app.
