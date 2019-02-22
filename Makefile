@@ -24,3 +24,4 @@ dependencies:
 	. venv/bin/activate; pip install --upgrade pip
 	echo "Resolving Python dependencies..."
 	. venv/bin/activate; pip install --upgrade -r requirements.txt
+	. venv/bin/activate; pip install "requests[security]"
