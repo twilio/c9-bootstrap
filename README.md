@@ -13,7 +13,7 @@ twilio-c9-bootstrap is designed to make setting up your first Twilio app a breez
   - Under `Clone from Git or Mercurial URL` enter `https://github.com/twilio/c9-bootstrap`
   - Under `Hosted workspace` select `Public`
   - Under `Choose a template` select `Python`
-4. Set up your starter code.
+5. Set up your starter code.
   - In your newly created workspace, click on the terminal window (bottom pane).
   - Type `make install` and return.
   - Type `python run.py` and enter to run your server.
